@@ -134,6 +134,7 @@
 
       // display the food with image and name
       dataShower = (meal) => {
+        // console.log(meal)
         const mealName = meal.strMeal;
         const mealPic = meal.strMealThumb;
         const ingredients = meal.strIngredient1;
@@ -142,13 +143,13 @@
         const createDiv = document.createElement("div");
         createDiv.className = "m-2 ";
         const createdElements = `
-        <div id="meal-homepage" class="card" style="width:11rem;">
-       <img src="${mealPic}" class="card-img-top" alt="...">
-       <div class="card-body bg-white">
-       <h3  class="bg-transparent text-center">${mealName}</h3>
-       </div>
-       </div>  
-        `;
+              <div id="meal-homepage" class="card" style="width:11rem;">
+             <img src="${mealPic}" class="card-img-top" alt="...">
+             <div class="card-body bg-white">
+             <h3  class="bg-transparent text-center">${mealName}</h3>
+             </div>
+             </div>
+              `;
         createDiv.innerHTML = createdElements;
         parent.appendChild(createDiv);
         // when every food item is clicked ingredients will display
@@ -158,13 +159,13 @@
           createIngreditentDiv.className = "custom-ingredientsDiv-style mt-5";
           createIngreditentDiv.style.display = "block";
           const createIngredients = `
-          <div id="meals-ingredients" class="card" style="width: 18rem;">
-          <img src="${mealPic}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h2>${mealName}</h2>
-            </div>
-        </div>
-          `;
+                <div id="meals-ingredients" class="card" style="width: 18rem;">
+                <img src="${mealPic}" class="card-img-top" alt="...">
+                <div class="card-body bg-white text-center">
+                  <h2 class="bg-transparent">${mealName}</h2>
+                  </div>
+              </div>
+                `;
           createIngreditentDiv.innerHTML = createIngredients;
           mealParent.appendChild(createIngreditentDiv);
           // when food ingredients will display food won't be displayed
@@ -175,7 +176,18 @@
             searchSection.style.visibility = "hidden";
           }
         });
-          
+        // get every meal ingradients property
+        const allPropertiesofEachMeal = Object.values(meal);
+        const ingredientsAndMeasures = allPropertiesofEachMeal.splice(7, 42); // take only ingradients and measures
+        const onlyIngredientsNames = ingredientsAndMeasures.splice(2, 19); // take only ingradients
+        const onlyMeasurements = ingredientsAndMeasures.splice(3, 22); // take only measures
+
+        console.log(
+          "names:",
+          onlyIngredientsNames,
+          "measures:",
+          onlyMeasurements
+        );
       };
     </script>
   </body>
