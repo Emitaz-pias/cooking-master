@@ -152,6 +152,7 @@
               `;
         createDiv.innerHTML = createdElements;
         parent.appendChild(createDiv);
+
         // when every food item is clicked ingredients will display
         createDiv.addEventListener("click", () => {
           const mealParent = document.getElementById("ingredients-secion");
@@ -175,19 +176,33 @@
             mealSection.style.display = "none";
             searchSection.style.visibility = "hidden";
           }
-        });
-        // get every meal ingradients property
+           // get every meal ingradients property
         const allPropertiesofEachMeal = Object.values(meal);
         const ingredientsAndMeasures = allPropertiesofEachMeal.splice(7, 42); // take only ingradients and measures
         const onlyIngredientsNames = ingredientsAndMeasures.splice(2, 19); // take only ingradients
         const onlyMeasurements = ingredientsAndMeasures.splice(3, 22); // take only measures
+          // create eqivalents numbers of li of ingredients
 
-        console.log(
-          "names:",
-          onlyIngredientsNames,
-          "measures:",
-          onlyMeasurements
-        );
+          onlyIngredientsNames.forEach((ingredients) => {
+            if (ingredients != "") {
+              
+              const ingredientsList = document.createElement("ul");
+              ingredientsList.className = "bg-white";
+              const ingredientItems = document.createElement("li");
+              ingredientItems.className = "bg-transparent";
+              ingredientItems.innerText = ingredients;
+              ingredientsList.appendChild(ingredientItems);
+              const parent = document.getElementById("meals-ingredients");
+              parent.appendChild(ingredientsList);
+            }
+          });
+          console.log(
+            "names:",
+            onlyIngredientsNames,
+            "measures:",
+            onlyMeasurements
+          );
+        });
       };
     </script>
   </body>
