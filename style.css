@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    background-color: #edd263;
+  }
+  .custom-color {
+    color: #3b2d64;
+  }
+  .custom-input-postion {
+    position: relative;
+    left: 450px;
+  }
+  .input-placeholder::-webkit-input-placeholder {
+    font-family: FontAwesome;
+  }
+  .custom-btn-style {
+    background-color: #3b2d64;
+    color: white;
+  }
+  .custom-btn-style:hover {
+    color: #fff;
+  }
+  .custom-melas-div-style {
+    position: absolute;
+    left: 160px;
+  }
+
+  .custom-ingredientsDiv-style {
+    position: relative;
+    left: 400px;
+  }
