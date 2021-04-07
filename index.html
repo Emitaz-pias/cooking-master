@@ -165,6 +165,7 @@
                 <div class="card-body bg-white text-center">
                   <h2 class="bg-transparent">${mealName}</h2>
                   </div>
+                  <h4 class="text-center bg-transparent">Ingredients:</h4>
               </div>
                 `;
           createIngreditentDiv.innerHTML = createIngredients;
@@ -176,16 +177,15 @@
             mealSection.style.display = "none";
             searchSection.style.visibility = "hidden";
           }
-           // get every meal ingradients property
-        const allPropertiesofEachMeal = Object.values(meal);
-        const ingredientsAndMeasures = allPropertiesofEachMeal.splice(7, 42); // take only ingradients and measures
-        const onlyIngredientsNames = ingredientsAndMeasures.splice(2, 19); // take only ingradients
-        const onlyMeasurements = ingredientsAndMeasures.splice(3, 22); // take only measures
+          // get every meal ingradients property
+          const allPropertiesofEachMeal = Object.values(meal);
+          const ingredientsAndMeasures = allPropertiesofEachMeal.splice(7, 42); // take only ingradients and measures
+          const onlyIngredientsNames = ingredientsAndMeasures.splice(2, 19); // take only ingradients
+          const onlyMeasurements = ingredientsAndMeasures.splice(3, 22); // take only measures
           // create eqivalents numbers of li of ingredients
-
+         
           onlyIngredientsNames.forEach((ingredients) => {
             if (ingredients != "") {
-              
               const ingredientsList = document.createElement("ul");
               ingredientsList.className = "bg-white";
               const ingredientItems = document.createElement("li");
@@ -194,14 +194,16 @@
               ingredientsList.appendChild(ingredientItems);
               const parent = document.getElementById("meals-ingredients");
               parent.appendChild(ingredientsList);
+              // before ingredients name measurement will shown...
+              onlyMeasurements.forEach((measure) => {
+                if(measure!=""){
+           console.log(measure)}
+          });
+
+
             }
           });
-          console.log(
-            "names:",
-            onlyIngredientsNames,
-            "measures:",
-            onlyMeasurements
-          );
+          
         });
       };
     </script>
